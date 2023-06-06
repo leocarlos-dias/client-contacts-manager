@@ -27,7 +27,9 @@ npm run start
 
 O servidor estará disponível na porta `3000`.
 
-A documentação do servidor pode ser encontrada no arquivo `index.html`, localizado na raiz do servidor.
+**Observação**: É importante iniciar o servidor antes do cliente para evitar conflitos de porta.
+
+A documentação do servidor pode ser acessada em `http://localhost:3000/doc`, ou pelo workspace do insomnia localizado na raiz do servidor.
 
 ### Client
 
@@ -40,6 +42,8 @@ npm run dev
 ```
 
 O client estará disponível na porta `3001`.
+
+**Observação**: Certifique-se de que o servidor esteja em execução na porta `3000` antes de iniciar o cliente.
 
 ## Como Executar
 
@@ -60,16 +64,25 @@ DATABASE_URL="postgresql://johndoe:randompassword@localhost:5432/mydb?schema=pub
 JWT_SECRET="secret-key"
 ```
 
-
 5. Execute o seguinte comando para iniciar o servidor:
 
 ```
 npm run start:dev
 ```
 
-O servidor estará disponível na porta `3333`.
+  O servidor estará disponível na porta `3000`.
 
-6. (Opcional) Caso deseje executar o client, navegue até a pasta `client` e execute o seguinte comando para instalar as dependências:
+6. **(Opcional)** Caso queira mudar o tipo de repositório de memória para o Prisma, siga as etapas abaixo:
+  
+    a. Siga as instruções interativas para configurar o `DATABASE_URL` do Prisma com o banco de dados PostgreSQL.
+  
+    b. Após configurar o Prisma, execute as migrações para criar as tabelas no banco de dados. Navegue até a pasta `server` e execute o seguinte comando:
+    
+    ``` npx prisma migrate dev ```
+  
+    c. Após a conclusão das migrações, você pode substituir o código no arquivo `app.module.ts`, localizado em `src/app.module.ts`, para utilizar o Prisma como ORM. Certifique-se de seguir os comentários no arquivo para fazer as substituições corretas.
+
+7. Caso deseje executar o client, navegue até a pasta `client` e execute o seguinte comando para instalar as dependências:
 
 ```
 npm install
@@ -79,6 +92,10 @@ Em seguida, execute o seguinte comando para iniciar o client:
 ```
 npm run dev
 ```
+
+O servidor estará disponível na porta `3001`.
+
+**Observação**: Certifique-se de que o servidor esteja em execução na porta `3000` antes de iniciar o cliente.
 
 ## Testes
 
@@ -102,6 +119,8 @@ A documentação da API também pode ser importada para o Insomnia utilizando o 
 O client estará disponível na porta `3001`.
 
 Agora você pode acessar o projeto em seu navegador em `http://localhost:3000` (para o servidor) e `http://localhost:3001` (para o client), respectivamente.
+
+## Como Contribuir
 
 ## Como Contribuir
 
