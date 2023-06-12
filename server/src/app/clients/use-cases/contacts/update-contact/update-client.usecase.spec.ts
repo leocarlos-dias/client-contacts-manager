@@ -65,7 +65,7 @@ describe("UpdateContactInClientUseCase", () => {
     };
 
     await expect(updateContactUseCase.execute(clientId, contactId, updatedContact)).rejects.toThrowError(
-      "Cliente não encontrado"
+      "Client not found"
     );
   });
 
@@ -86,7 +86,7 @@ describe("UpdateContactInClientUseCase", () => {
     }, clientId));
 
     await expect(updateContactUseCase.execute(clientId, contactId, updatedContact)).rejects.toThrowError(
-      "Contato não encontrado"
+      "Contact not found"
     );
   });
 });

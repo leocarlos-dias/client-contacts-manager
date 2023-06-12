@@ -48,7 +48,7 @@ describe("AddContactToClientUseCase", () => {
       phone: "9876543210",
     };
     await expect(addContactToClientUseCase.execute(nonExistentId, contactProps)).rejects.toThrowError(
-      "Cliente não encontrado"
+      "Client not found"
     );
   });
 });

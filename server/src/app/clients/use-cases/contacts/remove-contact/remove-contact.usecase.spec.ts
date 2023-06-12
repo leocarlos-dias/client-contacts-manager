@@ -38,7 +38,7 @@ describe("RemoveContactFromClientUseCase", () => {
     const nonExistentClientId = "non-existent-client-id";
     const contactId = "contact-id";
     await expect(removeContactFromClientUseCase.execute(nonExistentClientId, contactId)).rejects.toThrowError(
-      "Cliente não encontrado"
+      "Client not found"
     );
   });
 
@@ -53,6 +53,6 @@ describe("RemoveContactFromClientUseCase", () => {
     const nonExistentContactId = "non-existent-contact-id";
     await expect(
       removeContactFromClientUseCase.execute(createdClient.id, nonExistentContactId)
-    ).rejects.toThrowError("Contato não encontrado");
+    ).rejects.toThrowError("Contact not found");
   });
 });
